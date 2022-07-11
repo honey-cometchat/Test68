@@ -5,7 +5,7 @@ import {StyleSheet, Alert, TextInput, View, Button} from 'react-native';
 import {AUTH_KEY} from './config/common';
 
 const App = () => {
-  const [sessionID, setSessionID] = useState('agiq-rbdm-frto');
+  const [sessionID, setSessionID] = useState('zkme-hhtx-ztxp');
   const [userID, setUserID] = useState('SUPERHERO2');
   const [loading, setLoading] = useState('Join');
   const [user, setUser] = useState(null);
@@ -56,30 +56,38 @@ const App = () => {
     const callListener = new CometChat.OngoingCallListener({
       onUserJoined: user => {
         console.log('-0 user joined:', user);
+        // alert("onUserJoined");
       },
       onUserLeft: user => {
         console.log('-0 user left:', user);
+        // alert("onUserLeft");
       },
       onUserListUpdated: userList => {
         console.log('-0 user list:', userList);
+        // alert("onUserListUpdated");
       },
       onCallEnded: call => {
         console.log('-0 Call ended:', call);
+        // alert("onCallEnded");
         CometChat.logout().then(() => {
           setUser(null);
         });
       },
       onError: error => {
-        console.log('-0 Call Error: ', error);
+        // alert("onError");
+        console.log('-0 Call Error:', error);
       },
       onAudioModesUpdated: audioModes => {
+        // alert("onAudioModesUpdated");
         console.log('-0 audio modes:', audioModes);
       },
       onYouJoined: (ev) => {
+        // alert("onYouJoined");
         console.log("-0 onYouJoined", ev);
 
       },
       onYouLeft: (ev) => {
+        // alert("onYouLeft");
         console.log("-0 onYouLeft", ev);
 
       }
@@ -96,7 +104,7 @@ const App = () => {
       // .showMuteAudioButton(false)
       // .showSwitchCameraButton(false)
       // .showAudioModeButton(false)
-      .setIsAudioOnlyCall(true)
+      // .setIsAudioOnlyCall(true)
       // .setMode(CometChat.CALL_MODE.DEFAULT)
       // .startWithAudioMuted(true)
       // .startWithVideoMuted(true)
@@ -104,7 +112,7 @@ const App = () => {
       // .showSwitchToVideoCallButton(true)
       // .showSwitchToVideoCallButton(true)
       // .setAvatarMode("FULLSCREEN")
-      .showRecordingButton(true)
+      // .showRecordingButton(true)
       .build();
       // setTimeout(() => {
       // }, 10000);
